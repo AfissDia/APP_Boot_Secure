@@ -1,20 +1,27 @@
 package com.dia.app_boot_secure.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import javax.persistence.*;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-
 public class Supplier {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -35,7 +42,8 @@ public class Supplier {
 
     @ManyToOne
     @JoinColumn(name="stateid", insertable=false, updatable=false)
-    private String state;
+    private State state;
     private Integer stateid;
+
     private String details;
 }

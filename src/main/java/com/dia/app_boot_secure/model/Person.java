@@ -1,25 +1,37 @@
 package com.dia.app_boot_secure.model;
 
+import java.util.Date;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
+
+import org.hibernate.annotations.Formula;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import javax.swing.plaf.nimbus.State;
-import java.util.Date;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
 public class Person {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String firstname;
     private String lastname;
     private String othername;
+
+    @Formula(value = " concat(firstname, ' ', lastname) ")
+    private String fullName;
+
     private String title;
     private String initials;
     private String socialSecurityNumber;
@@ -27,12 +39,12 @@ public class Person {
     private String maritalStatus;
 
     @ManyToOne
-    @JoinColumn(name="countryid",insertable = false,updatable = false)
+    @JoinColumn(name="countryid", insertable=false, updatable=false)
     private Country country;
     private Integer countryid;
 
     @ManyToOne
-    @JoinColumn(name="stateid",insertable = false,updatable = false)
+    @JoinColumn(name="stateid", insertable=false, updatable=false)
     private State state;
     private Integer stateid;
 

@@ -1,24 +1,32 @@
 package com.dia.app_boot_secure.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
-import javax.persistence.MappedSuperclass;
+import org.springframework.data.domain.Auditable;
 
 @MappedSuperclass
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class CommonObject {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String description;
     private String details;
+
+    public CommonObject() {
+
+    }
 
     public CommonObject(Integer id, String description, String details) {
         this.id = id;
         this.description = description;
         this.details = details;
-    }
-
-    public CommonObject() {
     }
 
     public Integer getId() {
@@ -47,10 +55,8 @@ public class CommonObject {
 
     @Override
     public String toString() {
-        return "CommonObject{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", details='" + details + '\'' +
-                '}';
+        return "CommonObject [id=" + id + ", description=" + description + ", details=" + details + "]";
     }
+
+
 }

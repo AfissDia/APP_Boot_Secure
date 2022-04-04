@@ -1,23 +1,31 @@
 package com.dia.app_boot_secure.model;
 
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.domain.Auditable;
-import org.springframework.format.annotation.DateTimeFormat;
-
-import javax.persistence.*;
-import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
-
 public class VehicleMaintenance extends Auditable<String> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
@@ -33,6 +41,7 @@ public class VehicleMaintenance extends Auditable<String> {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
+
     private String price;
 
     @ManyToOne
@@ -41,4 +50,5 @@ public class VehicleMaintenance extends Auditable<String> {
     private Integer supplierid;
 
     private String remarks;
+
 }

@@ -1,35 +1,36 @@
 package com.dia.app_boot_secure.model;
 
-import org.springframework.data.annotation.CreatedBy;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import java.util.Date;
 
 import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
-
-import java.util.Date;
-
 import static javax.persistence.TemporalType.TIMESTAMP;
-import static org.springframework.data.jpa.domain.AbstractAuditable_.lastModifiedBy;
+
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public abstract class Auditable <U> {
+public abstract class Auditable<U> {
+
     @CreatedBy
     protected U createdBy;
 
     @CreatedDate
     @Temporal(TIMESTAMP)
-    protected U createdDate;
+    protected Date createdDate;
 
     @LastModifiedBy
-    protected U lastModifiedDate;
+    protected U lastModifiedBy;
 
-    @LastModifiedBy
+    @LastModifiedDate
     @Temporal(TIMESTAMP)
-    protected Date lastModifiedBy;
+    protected Date lastModifiedDate;
 
     public U getCreatedBy() {
         return createdBy;
@@ -40,26 +41,26 @@ public abstract class Auditable <U> {
     }
 
     public Date getCreatedDate() {
-        return (Date) createdDate;
+        return createdDate;
     }
 
     public void setCreatedDate(Date createdDate) {
-        this.createdDate = (U) createdDate;
+        this.createdDate = createdDate;
     }
 
     public U getLastModifiedBy() {
-        return (U) lastModifiedBy;
+        return lastModifiedBy;
     }
 
     public void setLastModifiedBy(U lastModifiedBy) {
-        this.lastModifiedBy = (Date) lastModifiedBy;
+        this.lastModifiedBy = lastModifiedBy;
     }
 
     public Date getLastModifiedDate() {
-        return (Date) lastModifiedDate;
+        return lastModifiedDate;
     }
 
     public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = (U) lastModifiedDate;
+        this.lastModifiedDate = lastModifiedDate;
     }
 }
