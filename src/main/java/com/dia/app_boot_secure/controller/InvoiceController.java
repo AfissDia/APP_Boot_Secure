@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class InvoiceController {
-    @GetMapping("/invoice")
-    public String goEmployee() {
+    @GetMapping("/invoices")
+    public String goInvoices() {
         return "invoice";
     }
 }
