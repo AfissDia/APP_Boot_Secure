@@ -4,19 +4,21 @@
 
 $('document').ready(function() {
 	
-	$('.table .btn-primary').on('click',function(event){		
+	$('.table #editbtn').on('click',function(event){
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(state, status){
 			$('#idEdit').val(state.id);
 			$('#ddlCountryEdit').val(state.countryid);
+			$('#capitalEdit').val(state.capital);
+			$('#codeEdit').val(state.code);
 			$('#nameEdit').val(state.name);
 			$('#detailsEdit').val(state.details);
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
-	$('.table #detailsButton').on('click',function(event) {
+	$('.table #detailsbtn').on('click',function(event) {
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(state, status){
@@ -27,13 +29,19 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(state.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
-	$('.table #deleteButton').on('click',function(event) {
+	/*$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #delRef').attr('href', href);
 		$('#deleteModal').modal();		
-	});	
+	});*/
+	$('table #deletebtn').on('click',function(event) {
+		event.preventDefault();
+		var href= $(this).attr('href');
+		$('#confirmDeleteButton').attr('href',href);
+		$('#deleteModal').modal('show');
+	});
 });
