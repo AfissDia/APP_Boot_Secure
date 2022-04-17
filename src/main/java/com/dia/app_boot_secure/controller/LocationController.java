@@ -33,7 +33,7 @@ public class LocationController {
         model.addAttribute("countries", listCountry);
 
         List<Location> listLocation=locationService.getLocation();
-        model.addAttribute("location",listLocation);
+        model.addAttribute("locations",listLocation);
 
         return "location";
         //}

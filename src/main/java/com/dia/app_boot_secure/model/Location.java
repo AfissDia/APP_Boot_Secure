@@ -25,7 +25,6 @@ public class Location {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
-
     private String description;
     private String details;
 
@@ -40,5 +39,77 @@ public class Location {
     private Integer stateid;
 
     private String city;
-    private String address;
+    private String adress;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDetails() {
+        return details;
+    }
+
+    public void setDetails(String details) {
+        this.details = details;
+    }
+
+    public Country getCountry() {
+        return country;
+    }
+
+    public void setCountry(Country country) {
+        this.country = country;
+    }
+
+    public Integer getCountryid() {
+        return countryid;
+    }
+
+    public void setCountryid(Integer countryid) {
+        this.countryid = countryid;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public Integer getStateid() {
+        return stateid;
+    }
+
+    public void setStateid(Integer stateid) {
+        this.stateid = stateid;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
 }
