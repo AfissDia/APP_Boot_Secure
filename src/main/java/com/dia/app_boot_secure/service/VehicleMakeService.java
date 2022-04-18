@@ -14,7 +14,7 @@ public class VehicleMakeService {
     @Autowired
     private VehicleMakeRepository vehicleMakeRepository;
 
-    public List<VehicleMake> getvehicleMake(){
+    public List<VehicleMake> getVehicleMake(){
         return vehicleMakeRepository.findAll();
     }
 

@@ -25,6 +25,8 @@ $('document').ready(function() {
 			$('#idDetails').val(state.id);
 			$('#ddlCountryDetails').val(state.countryid);			
 			$('#nameDetails').val(state.name);
+			$('#codeEdit').val(state.code);
+			$('#capitalEdit').val(state.capital);
 			$('#detailsDetails').val(state.details);
 			$('#lastModifiedByDetails').val(state.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(state.lastModifiedDate.substr(0,19).replace("T", " "));

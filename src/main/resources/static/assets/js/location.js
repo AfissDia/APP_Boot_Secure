@@ -10,6 +10,7 @@ $('document').ready(function() {
 		$.get(href, function(location, status){
 			$('#idEdit').val(location.id);
 			$('#cityEdit').val(location.city);
+			$('#descriptionEdi').val(location.description);
 			$('#adressEdit').val(location.adress);
 			$('#ddlCountryEdit').val(location.countryid);
 			$('#ddlStateEdit').val(location.stateid);
