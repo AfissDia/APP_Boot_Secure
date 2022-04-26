@@ -333,7 +333,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" th:href="@{/vehicleStatuss}">
+                    <a href="" th:href="@{/vehicleStatuses}">
                         <i class="bi bi-circle"></i><span>Status Values</span>
                     </a>
                 </li>
@@ -407,7 +407,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" th:href="@{/invoiceStatuss}">
+                    <a href="" th:href="@{/invoiceStatuses}">
                         <i class="bi bi-circle"></i><span>Invoice Status Values</span>
                     </a>
                 </li>
@@ -596,121 +596,6 @@
     </form>
 </div>
 
-<!--<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">New Location</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/location/addNew}" method="post">
-                    <div class="form-group">
-                        <label for="idEdit" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control" id="idEdit" name="id" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ddlCountryDetails" class="col-form-label">Country:</label>
-                        <select class="form-control" id="ddlCountryEdit" name="countryid">
-                            <option>-SELECT-</option>
-                            <option th:each="country : ${countries}"
-                                    th:value="${country.id}"
-                                    th:text="${country.description}">
-                            </option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Description:</label>
-                        <input type="text" class="form-control" id="description" name="description">
-                    </div>
-                    &lt;!&ndash;  <div class="form-group">
-                          <label for="name" class="col-form-label">Name:</label>
-                          <input type="text" class="form-control" id="capital" name="name">
-                      </div>&ndash;&gt;
-                    <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">code:</label>
-                        <input type="text" class="form-control" id="code" name="code">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="details" class="col-form-label">Details:</label>
-                        <input type="text" class="form-control" id="details" name="details">
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>-->
-
-<!--
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Update Country</h5>
-                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form th:action="@{/states/update}"  method="put">
-
-                    <div class="form-group">
-                        <label for="description" class="col-form-label">Id:</label>
-                        <input type="text" class="form-control" id="idEdit" name="id" readonly>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="ddlCountryDetails" class="col-form-label">Country:</label>
-                        <select class="form-control" id="ddlCountryEdit" name="countryid">
-                            <option>-SELECT-</option>
-                            <option th:each="country : ${countries}"
-                                    th:value="${country.id}"
-                                    th:text="${country.description}">
-                            </option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="name" class="col-form-label">Name:</label>
-                        <input type="text" class="form-control" id="nameEdit" name="capital">
-                    </div>
-                    <div class="form-group">
-                        <label for="code" class="col-form-label">code:</label>
-                        <input type="text" class="form-control" id="codeEdit" name="code">
-                    </div>
-                    <div class="form-group">
-                        <label for="capital" class="col-form-label">Capital:</label>
-                        <input type="text" class="form-control" id="capitalEdit" name="code">
-                    </div>
-                    <div class="form-group">
-                        <label for="details" class="col-form-label">Details:</label>
-                        <input type="text" class="form-control" id="detailsEdit" name="details">
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
--->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
     <form th:action="@{/locations/update}" method="put">
         <div class="modal-dialog" role="document">
@@ -739,7 +624,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="detailsEdit" class="col-form-label">Address:</label>
+                        <label for="adressEdit" class="col-form-label">Address:</label>
                         <textarea type="text" class="form-control" id="adressEdit" name="adress"></textarea>
                     </div>
 

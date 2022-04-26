@@ -18,7 +18,7 @@ public class VehicleStatusController {
     private VehicleStatusService vehicleStatusService;
 
     // Get All State
-    @GetMapping("/vehicleStatuss")
+    @GetMapping("/vehicleStatuses")
     public String goStates(Model model) {
         /*List<State> listState = stateService.getStates();
         model.addAttribute("states", listState);
@@ -27,19 +27,19 @@ public class VehicleStatusController {
         model.addAttribute("countries", listCountry);*/
 
         List<VehicleStatus> listVehicleStatus=vehicleStatusService.getVehicleStatus();
-        model.addAttribute("vehicleStatuss",listVehicleStatus);
+        model.addAttribute("vehicleStatuses",listVehicleStatus);
 
         return "vehicleStatus";
         //}
     }
 
-    @PostMapping("/vehicleStatuss/addNew")
+    @PostMapping("/vehicleStatuses/addNew")
     public String saveVehicleStatus(VehicleStatus vehicleStatus) {
         vehicleStatusService.save(vehicleStatus);
-        return "redirect:/vehicleStatuss";
+        return "redirect:/vehicleStatuses";
     }
 
-    @RequestMapping("vehicleStatuss/findById")
+    @RequestMapping("vehicleStatuses/findById")
     @ResponseBody
     public Optional<VehicleStatus> findById(int id) {
         return vehicleStatusService.findById(id);
@@ -48,12 +48,12 @@ public class VehicleStatusController {
     @RequestMapping(value = "vehicleStatuss/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(VehicleStatus vehicleStatus) {
         vehicleStatusService.save(vehicleStatus);
-        return "redirect:/vehicleStatuss";
+        return "redirect:/vehicleStatuses";
     }
 
-    @RequestMapping(value = "vehicleStatuss/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "vehicleStatuses/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         vehicleStatusService.delete(id);
-        return "redirect:/vehicleStatuss";
+        return "redirect:/vehicleStatuses";
     }
 }

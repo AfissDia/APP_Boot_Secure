@@ -1,10 +1,6 @@
-/**
- * 
- */
-
 $('document').ready(function() {
 	
-	$('.table .btn-primary').on('click',function(event){		
+	$('.table #editbtn').on('click',function(event){
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(vehicleMake, status){
@@ -12,10 +8,10 @@ $('document').ready(function() {
 			$('#descriptionEdit').val(vehicleMake.description);
 			$('#detailsEdit').val(vehicleMake.details);
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
-	$('.table #detailsButton').on('click',function(event) {
+	$('.table #detailsbtn').on('click',function(event) {
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(vehicleMake, status){
@@ -25,13 +21,13 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(vehicleMake.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(vehicleMake.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
-	$('.table #deleteButton').on('click',function(event) {
+	$('.table #deletebtn').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal').modal('show');
 	});	
 });

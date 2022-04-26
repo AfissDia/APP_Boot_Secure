@@ -18,7 +18,7 @@ public class InvoiceStatusController {
     private InvoiceStatusService invoiceStatusService;
 
     // Get All State
-    @GetMapping("/invoiceStatuss")
+    @GetMapping("/invoiceStatuses")
     public String goStates(Model model) {
         /*List<State> listState = stateService.getStates();
         model.addAttribute("states", listState);
@@ -27,33 +27,33 @@ public class InvoiceStatusController {
         model.addAttribute("countries", listCountry);*/
 
         List<InvoiceStatus> listInvoiceStatus=invoiceStatusService.getInvoiceStatus();
-        model.addAttribute("invoiceStatuss",listInvoiceStatus);
+        model.addAttribute("invoiceStatuses",listInvoiceStatus);
 
         return "invoiceStatus";
         //}
     }
 
-    @PostMapping("/invoiceStatuss/addNew")
+    @PostMapping("/invoiceStatuses/addNew")
     public String saveInvoiceStatus(InvoiceStatus invoiceStatus) {
         invoiceStatusService.save(invoiceStatus);
-        return "redirect:/invoiceStatuss";
+        return "redirect:/invoiceStatuses";
     }
 
-    @RequestMapping("invoiceStatuss/findById")
+    @RequestMapping("invoiceStatuses/findById")
     @ResponseBody
     public Optional<InvoiceStatus> findById(int id) {
         return invoiceStatusService.findById(id);
     }
 
-    @RequestMapping(value = "invoiceStatuss/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    @RequestMapping(value = "invoiceStatuses/update", method = {RequestMethod.PUT, RequestMethod.GET})
     public String update(InvoiceStatus InvoiceStatus) {
         invoiceStatusService.save(InvoiceStatus);
-        return "redirect:/invoiceStatuss";
+        return "redirect:/invoiceStatuses";
     }
 
-    @RequestMapping(value = "invoiceStatuss/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "invoiceStatuses/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String delete(Integer id) {
         invoiceStatusService.delete(id);
-        return "redirect:/invoiceStatuss";
+        return "redirect:/invoiceStatuses";
     }
 }
