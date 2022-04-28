@@ -1,10 +1,7 @@
-/**
- * 
- */
 
 $('document').ready(function() {
 	
-	$('.table .btn-primary').on('click',function(event){		
+	$('table .btn-primary').on('click',function(event){
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(supplier, status){
@@ -20,10 +17,10 @@ $('document').ready(function() {
 			$('#ddlStateEdit').val(supplier.stateid);	
 			$('#txtWebsiteEdit').val(supplier.website);
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
-	$('.table #detailsButton').on('click',function(event) {
+	$('table #detailsButton').on('click',function(event) {
 		event.preventDefault();		
 		var href= $(this).attr('href');		
 		$.get(href, function(country, status){
@@ -33,13 +30,13 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(country.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(country.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
-	$('.table #deleteButton').on('click',function(event) {
+	$('table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal').modal('show');
 	});	
 });
