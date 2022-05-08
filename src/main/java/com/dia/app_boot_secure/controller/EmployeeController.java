@@ -3,31 +3,35 @@ package com.dia.app_boot_secure.controller;
 import com.dia.app_boot_secure.model.Country;
 import com.dia.app_boot_secure.model.Employee;
 import com.dia.app_boot_secure.model.State;
-import com.dia.app_boot_secure.service.EmployeeService;
+import com.dia.app_boot_secure.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import java.util.List;
 import java.util.Optional;
 
 @Controller
 public class EmployeeController {
-    @Autowired
-    private EmployeeService employeeService;
+    @Autowired private EmployeeService employeeService;
+    @Autowired private StateService stateService;
+    @Autowired private JobTitleService jobTitleService;
+    @Autowired private CountryService countryService;
+    @Autowired private EmployeeTypeService employeeTypeService;
+
+    @Autowired private ServletContext context;
 
     // Get All State
     @GetMapping("/employees")
     public String goStates(Model model) {
-        /*List<State> listState = stateService.getStates();
-        model.addAttribute("states", listState);
 
-        List<Country> listCountry = countryService.getCountries();
-        model.addAttribute("countries", listCountry);*/
-
-        List<Employee> listEmployee=employeeService.getEmployee();
-        model.addAttribute("employees",listEmployee);
+        model.addAttribute("employees",employeeService.getEmployee());;
+        model.addAttribute("countries",countryService.getCountries());
+        model.addAttribute("jobTitles", jobTitleService.getJobTitle());
+        model.addAttribute("states",stateService.getStates());
+        model.addAttribute("employeeTypes", employeeTypeService.getEmployeeType());
 
         return "employee";
         //}

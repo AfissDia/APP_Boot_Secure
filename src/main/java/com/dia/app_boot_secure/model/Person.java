@@ -9,17 +9,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 
+import lombok.*;
 import org.hibernate.annotations.Formula;
 import org.springframework.format.annotation.DateTimeFormat;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @MappedSuperclass
+@Getter
+@Setter
 public class Person {
 
     @Id
@@ -47,13 +46,14 @@ public class Person {
     @JoinColumn(name="stateid", insertable=false, updatable=false)
     private State state;
     private Integer stateid;
-
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
-    private String city;
+    protected String city;
     private String address;
     private String phone;
     private String mobile;
     private String email;
     private String photo;
+
+
 }

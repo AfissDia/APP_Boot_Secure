@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 $('document').ready(function() {	
 	$('.table #editButton').on('click',function(event){		
@@ -23,7 +20,7 @@ $('document').ready(function() {
 			$('#remarksEdit').val(vehicleHire.remarks);
 			$('#ddlVehicleEdit').val(vehicleHire.vehicleid);			
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
 	$('.table #detailsButton').on('click',function(event) {
@@ -44,13 +41,13 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(vehicleHire.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(vehicleHire.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
 	$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal').modal('show');
 	});	
 });

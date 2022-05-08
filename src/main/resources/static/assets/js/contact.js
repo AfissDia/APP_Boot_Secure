@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 $('document').ready(function() {
 	
@@ -15,12 +12,12 @@ $('document').ready(function() {
 			$('#txtMobileEdit').val(contact.mobile);
 			$('#txtPhoneEdit').val(contact.phone);			
 			$('#txtRemarksEdit').val(contact.remarks);
-		});			
-		$('#editModal').modal();		
+		});
+		$('#editModal').modal('show');
 	});
-	
+
 	$('.table #detailsButton').on('click',function(event) {
-		event.preventDefault();		
+		event.preventDefault();
 		var href= $(this).attr('href');		
 		$.get(href, function(country, status){
 			$('#idDetails').val(country.id);
@@ -29,13 +26,13 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(country.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(country.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
 	$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
-		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal #confirmDeleteButton').attr('href', href);
+		$('#deleteModal').modal('show');
 	});	
 });

@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 $('document').ready(function() {
 	
@@ -21,7 +18,7 @@ $('document').ready(function() {
 			$('#startDateEdit').val(startDate);
 			$('#endDateEdit').val(endDate);
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
 	$('.table #detailsButton').on('click',function(event) {
@@ -42,13 +39,13 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(vehicleMaintenance.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(vehicleMaintenance.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
 	$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #confirmDeleteButton').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal').modal('show');
 	});	
 });

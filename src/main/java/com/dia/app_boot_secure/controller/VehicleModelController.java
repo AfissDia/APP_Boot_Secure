@@ -17,14 +17,8 @@ public class VehicleModelController {
     @Autowired
     private VehicleModelService vehicleModelService;
 
-    // Get All State
     @GetMapping("/vehicleModels")
     public String goStates(Model model) {
-        /*List<State> listState = stateService.getStates();
-        model.addAttribute("states", listState);
-
-        List<Country> listCountry = countryService.getCountries();
-        model.addAttribute("countries", listCountry);*/
 
         List<VehicleModel> listVehicleModel=vehicleModelService.getVehicleModel();
         model.addAttribute("vehicleModels",listVehicleModel);

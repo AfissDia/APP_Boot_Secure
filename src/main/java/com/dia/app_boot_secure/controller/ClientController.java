@@ -29,7 +29,7 @@ public class ClientController {
         model.addAttribute("states", stateService.getStates());
 
         return "client";
-        //}
+
     }
 
     @PostMapping("/clients/addNew")

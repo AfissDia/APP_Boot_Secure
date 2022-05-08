@@ -1,6 +1,3 @@
-/**
- * 
- */
 
 $('document').ready(function() {
 	
@@ -33,7 +30,7 @@ $('document').ready(function() {
 			$('#txtHireDateEdit').val(hireDate);
 			$('#ddlJobTitleEdit').val(employee.jobtitleid);			
 		});			
-		$('#editModal').modal();		
+		$('#editModal').modal('show');
 	});
 	
 	$('.table #detailsButton').on('click',function(event) {
@@ -46,21 +43,21 @@ $('document').ready(function() {
 			$('#lastModifiedByDetails').val(employee.lastModifiedBy);
 			$('#lastModifiedDateDetails').val(employee.lastModifiedDate.substr(0,19).replace("T", " "));
 		});			
-		$('#detailsModal').modal();		
+		$('#detailsModal').modal('show');
 	});	
 	
 	$('.table #deleteButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#deleteModal #delRef').attr('href', href);
-		$('#deleteModal').modal();		
+		$('#deleteModal').modal('show');
 	});	
 	
 	$('.table #photoButton').on('click',function(event) {
 		event.preventDefault();
 		var href = $(this).attr('href');
 		$('#photoModal #employeePhoto').attr('src', href);
-		$('#photoModal').modal();		
+		$('#photoModal').modal('show');
 	});	
 	
 	$('#uploadButton').on('click',function(event){
@@ -69,19 +66,11 @@ $('document').ready(function() {
 		$.post(href, function(data, status){
 			console.log(data);
 		});
-	});	
+	}                                                                                                                                                                                                                                                                                                                                                                                                                                            );	
 		
 });
 
 
 
 
-//function fcnUpload(url){
-//	console.log("Upload button was clicked");
-//	//var href = $(this).attr('href');
-//	var href = url;
-//	console.log("End point of upload: " + href);
-//	$.post(href, function(data, status){
-//		console.log(data);
-//	});
 //}
