@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
@@ -16,6 +18,8 @@ import lombok.EqualsAndHashCode;
 
 @Entity
 @Data
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper=false)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class Employee extends Person {

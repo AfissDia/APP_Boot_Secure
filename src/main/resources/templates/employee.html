@@ -213,8 +213,8 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="assets/img/ui-sam.jpg" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">Dia Afiss</span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
@@ -483,6 +483,7 @@
                                 <th><i class="bi bi-building"></i> Action</th>
                             </tr>
                             <tr th:each="employee:${employees}">
+
                                 <td>
                                     <a id="photoButton" th:href="@{'/img/photos' + ${employee.id} +'.jpg'}">
                                         <img th:src="@{'/img/photos' + ${employee.id} +'.jpg'}" width="40" height="40">
